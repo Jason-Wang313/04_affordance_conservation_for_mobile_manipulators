@@ -1,0 +1,33 @@
+Literature retrieval started.
+FETCH query='robot affordance mobile manipulation' page=1 results=200 unique_before=0
+FETCH query='affordance learning robotic manipulation' page=1 results=200 unique_before=199
+FETCH query='mobile manipulator reachability base pose manipulation' page=1 results=200 unique_before=307
+FETCH query='robot manipulation clutter affordance' page=1 results=200 unique_before=490
+FETCH query='task and motion planning mobile manipulation clutter' page=1 results=200 unique_before=624
+FETCH query='whole body planning mobile manipulator manipulation' page=1 results=200 unique_before=757
+FETCH query='robot reachability map mobile manipulation' page=1 results=200 unique_before=860
+FETCH query='object affordance robot grasping manipulation' page=1 results=200 unique_before=958
+FETCH query='3D affordance perception robotic manipulation' page=1 results=200 unique_before=1029
+FETCH query='where2act affordance robot manipulation' page=1 results=117 unique_before=1085
+FETCH query='articulated object affordance robot manipulation' page=1 results=200 unique_before=1185
+FETCH query='robot manipulation in clutter rearrangement' page=1 results=200 unique_before=1280
+FETCH query='action precondition learning robot manipulation' page=1 results=200 unique_before=1413
+FETCH query='equivariant invariant robotic manipulation affordance' page=1 results=128 unique_before=1572
+FETCH query='transportable affordance robotic manipulation' page=1 results=200 unique_before=1677
+FETCH query='visual affordance learning robotics manipulation' page=1 results=200 unique_before=1749
+FETCH query='scene graph affordance robot manipulation' page=1 results=200 unique_before=1772
+FETCH query='embodied AI manipulation affordance' page=1 results=200 unique_before=1824
+FETCH query='robot foundation model manipulation affordance' page=1 results=200 unique_before=1984
+FETCH query='language conditioned robot manipulation affordance' page=1 results=200 unique_before=2031
+FETCH query='mobile manipulation task planning base placement' page=1 results=200 unique_before=2083
+FETCH query='robot object rearrangement clutter manipulation' page=1 results=200 unique_before=2176
+FETCH query='robot contact affordance manipulation' page=1 results=200 unique_before=2190
+FETCH query='dexterous manipulation affordance learning' page=1 results=200 unique_before=2201
+FETCH query='robot manipulation reachable workspace clutter' page=1 results=200 unique_before=2292
+FETCH query='affordance map robot navigation manipulation' page=1 results=200 unique_before=2358
+FETCH query='manipulation affordance conservation invariance' page=1 results=200 unique_before=2391
+FETCH query='cognitive robotics affordance manipulation' page=1 results=200 unique_before=2578
+FETCH query='learning action models robot manipulation' page=1 results=200 unique_before=2601
+FETCH query='spatial affordance prediction robotics' page=1 results=200 unique_before=2695
+WROTE matrix=C:\Users\wangz\robotics_60_paper_batch\04_affordance_conservation_for_mobile_manipulators\docs\related_work_matrix.csv rows=1100 raw=C:\Users\wangz\robotics_60_paper_batch\04_affordance_conservation_for_mobile_manipulators\data\openalex_records.jsonl
+SUCCESS retrieved >=1000 records (1100).

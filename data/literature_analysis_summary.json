@@ -1,0 +1,16 @@
+{
+  "matrix_rows": 1100,
+  "serious_skim_rows": 300,
+  "deep_read_rows": 250,
+  "hostile_rows": 100,
+  "chosen_direction": "Conserved Affordance Quotients",
+  "outputs": [
+    "docs/literature_map.md",
+    "docs/hostile_prior_work.md",
+    "docs/novelty_boundary_map.md",
+    "docs/novelty_decision.md",
+    "docs/claims.md",
+    "docs/reviewer_attacks.md",
+    "paper/references.bib"
+  ]
+}

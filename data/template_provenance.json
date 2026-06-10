@@ -1,0 +1,12 @@
+{
+  "template": "ICLR 2026",
+  "author_guide": "https://iclr.cc/Conferences/2026/AuthorGuide",
+  "template_url": "https://github.com/ICLR/Master-Template/raw/master/iclr2026.zip",
+  "status": "ok",
+  "files_copied": [
+    "iclr2026_conference.sty",
+    "iclr2026_conference.bst",
+    "math_commands.tex",
+    "natbib.sty"
+  ]
+}
