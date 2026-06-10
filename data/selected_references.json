@@ -1,0 +1,482 @@
+[
+  {
+    "key": "rw001",
+    "title": "Kinematics and Local Motion Planning for Quasi-static Whole-body Mobile Manipulation",
+    "year": "2016",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw002",
+    "title": "Visual Grasp Affordance Localization in Point Clouds Using Curved Contact Patches",
+    "year": "2016",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw003",
+    "title": "Optimal Base Placement and Motion Planning for Mobile Manipulators",
+    "year": "2012",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw004",
+    "title": "AffordGrasp: In-Context Affordance Reasoning for Open-Vocabulary Task-Oriented Grasping in Clutter",
+    "year": "2025",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw005",
+    "title": "Implicit contact-rich manipulation planning for a manipulator with insufficient payload",
+    "year": "2023",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw006",
+    "title": "RT-Affordance: Affordances are Versatile Intermediate Representations for Robot Manipulation",
+    "year": "2025",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw007",
+    "title": "Real-Time Collision-Free Motion Planning and Control for Mobile Manipulation with Quadrupeds",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw008",
+    "title": "Enabling Failure Recovery for On-The-Move Mobile Manipulation",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw009",
+    "title": "Model-Free Large-Scale Cloth Spreading With Mobile Manipulation: Initial Feasibility Study",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw010",
+    "title": "DORA: Object Affordance-Guided Reinforcement Learning for Dexterous Robotic Manipulation",
+    "year": "2025",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw011",
+    "title": "Probabilistic Spatio-Temporal Fusion of Affordances for Grasping and Manipulation",
+    "year": "2022",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw012",
+    "title": "Information-driven Affordance Discovery for Efficient Robotic Manipulation",
+    "year": "2024",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw013",
+    "title": "Generalized Affordance Templates for Mobile Manipulation",
+    "year": "2022",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw014",
+    "title": "Tree Search-based Task and Motion Planning with Prehensile and Non-prehensile Manipulation for Obstacle Rearrangement in Clutter",
+    "year": "2021",
+    "cluster": "clutter and rearrangement manipulation"
+  },
+  {
+    "key": "rw015",
+    "title": "Harmonious Sampling for Mobile Manipulation Planning",
+    "year": "2019",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw016",
+    "title": "The UMass Mobile Manipulator UMan: An Experimental Platform for Autonomous Mobile Manipulation",
+    "year": "2006",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw017",
+    "title": "VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models",
+    "year": "2023",
+    "cluster": "robot foundation/vision-language manipulation"
+  },
+  {
+    "key": "rw018",
+    "title": "Unsupervised learning of object affordances for planning in a mobile manipulation platform",
+    "year": "2011",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw019",
+    "title": "Combined Path and Motion Planning for Workspace Restricted Mobile Manipulators in Planetary Exploration",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw020",
+    "title": "Affordance based Part Recognition for Grasping and Manipulation",
+    "year": "2011",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw021",
+    "title": "A Versatile Affordance Modeling Framework Using Screw Primitives to Increase Autonomy During Manipulation Contact Tasks",
+    "year": "2022",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw022",
+    "title": "Pose optimization for mobile manipulator grasping based on hybrid manipulability",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw023",
+    "title": "Manipulation-Oriented Object Perception in Clutter through Affordance Coordinate Frames",
+    "year": "2022",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw024",
+    "title": "Towards affordance detection for robot manipulation using affordance for parts and parts for affordance",
+    "year": "2018",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw025",
+    "title": "A Survey on Deep Reinforcement Learning Algorithms for Robotic Manipulation",
+    "year": "2023",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw026",
+    "title": "Affordance-Based Multi-Contact Whole-Body Pose Sequence Planning for Humanoid Robots in Unknown Environments",
+    "year": "2018",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw027",
+    "title": "Extraction of Whole-Body Affordances for Loco-Manipulation Tasks",
+    "year": "2015",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw028",
+    "title": "The Affordance Template ROS package for robot task programming",
+    "year": "2015",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw029",
+    "title": "Development of Human Support Robot as the research platform of a domestic mobile manipulator",
+    "year": "2019",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw030",
+    "title": "Elastic Roadmaps: Globally Task-Consistent Motion for Autonomous Mobile Manipulation in Dynamic Environments",
+    "year": "2006",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw031",
+    "title": "Optimal Order Pick-and-Place of Objects in Cluttered Scene by a Mobile Manipulator",
+    "year": "2021",
+    "cluster": "reachability and workspace models"
+  },
+  {
+    "key": "rw032",
+    "title": "Posture evaluation for mobile manipulators using manipulation ability, tolerance on grasping, and pose error of end-effector",
+    "year": "2021",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw033",
+    "title": "Affordance-Driven Next-Best-View Planning for Robotic Grasping",
+    "year": "2023",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw034",
+    "title": "Affordances in Psychology, Neuroscience, and Robotics: A Survey",
+    "year": "2016",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw035",
+    "title": "The Grasp Strategy of a Robot Passer Influences Performance and Quality of the Robot-Human Object Handover",
+    "year": "2020",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw036",
+    "title": "Semantic Grasping Via a Knowledge Graph of Robotic Manipulation: A Graph Representation Learning Approach",
+    "year": "2022",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw037",
+    "title": "Perceiving, learning, and exploiting object affordances for autonomous pile manipulation",
+    "year": "2014",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw038",
+    "title": "Learning Push-Grasping in Dense Clutter",
+    "year": "2022",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw039",
+    "title": "An autonomous mobile manipulator for collecting sample containers",
+    "year": "2014",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw040",
+    "title": "A Shared Autonomous Nursing Robot Assistant with Dynamic Workspace for Versatile Mobile Manipulation",
+    "year": "2023",
+    "cluster": "reachability and workspace models"
+  },
+  {
+    "key": "rw041",
+    "title": "TARS: Tactile Affordance in Robot Synesthesia for Dexterous Manipulation",
+    "year": "2024",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw042",
+    "title": "Affordance-Based Grasping and Manipulation in Real World Applications",
+    "year": "2020",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw043",
+    "title": "Task and motion planning for mobile manipulators",
+    "year": "2011",
+    "cluster": "task and motion planning"
+  },
+  {
+    "key": "rw044",
+    "title": "Whole-Body MPC for a Dynamically Stable Mobile Manipulator",
+    "year": "2019",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw045",
+    "title": "Stability-constrained mobile manipulation planning on rough terrain",
+    "year": "2022",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw046",
+    "title": "Variable impedance control on contact-rich manipulation of a collaborative industrial mobile manipulator: An imitation learning approach",
+    "year": "2024",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw047",
+    "title": "Body Extension by Using Two Mobile Manipulators",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw048",
+    "title": "Task-Oriented Robot Cognitive Manipulation Planning Using Affordance Segmentation and Logic Reasoning",
+    "year": "2023",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw049",
+    "title": "Interactive Open-Ended Object, Affordance and Grasp Learning for Robotic Manipulation",
+    "year": "2019",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw050",
+    "title": "RLAfford: End-to-End Affordance Learning for Robotic Manipulation",
+    "year": "2023",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw051",
+    "title": "A Hierarchical Motion Planning Method for Mobile Manipulator",
+    "year": "2023",
+    "cluster": "task and motion planning"
+  },
+  {
+    "key": "rw052",
+    "title": "Reuleaux: Robot Base Placement by Reachability Analysis",
+    "year": "2018",
+    "cluster": "reachability and workspace models"
+  },
+  {
+    "key": "rw053",
+    "title": "Examples of Gibsonian Affordances in Legged Robotics Research Using an Empirical, Generative Framework",
+    "year": "2020",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw054",
+    "title": "Synergies Between Affordance and Geometry: 6-DoF Grasp Detection via Implicit Representations",
+    "year": "2021",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw055",
+    "title": "Learning 6-DoF Fine-grained Grasp Detection Based on Part Affordance Grounding",
+    "year": "2023",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw056",
+    "title": "Spatial Action Maps for Mobile Manipulation",
+    "year": "2020",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw057",
+    "title": "Mobile Manipulation for the HSR Intelligent Home Service Robot",
+    "year": "2019",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw058",
+    "title": "Base Placement Optimization for Coverage Mobile Manipulation Tasks",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw059",
+    "title": "Kinesthetic Learning Based on Fast Marching Square Method for Manipulation",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw060",
+    "title": "ImageManip: Image-based Robotic Manipulation with Affordance-guided Next View Selection",
+    "year": "2023",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw061",
+    "title": "An Affordances and Electromyography Based Telemanipulation Framework for Control of Robotic Arm-Hand Systems",
+    "year": "2023",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw062",
+    "title": "Attribute-Based Robotic Grasping with One-Grasp Adaptation",
+    "year": "2021",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw063",
+    "title": "An Intuitive, Affordances Oriented Telemanipulation Framework for a Dual Robot Arm Hand System: On the Execution of Bimanual Tasks",
+    "year": "2019",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw064",
+    "title": "Exercising Affordances of Objects: A Part-Based Approach",
+    "year": "2018",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw065",
+    "title": "Predictive Reachability for Embodiment Selection in Mobile Manipulation Behaviors",
+    "year": "2025",
+    "cluster": "reachability and workspace models"
+  },
+  {
+    "key": "rw066",
+    "title": "Learning and Reasoning with Action-Related Places for Robust Mobile Manipulation",
+    "year": "2012",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw067",
+    "title": "Learning Instruction-Guided Manipulation Affordance via Large Models for Embodied Robotic Tasks",
+    "year": "2024",
+    "cluster": "robot foundation/vision-language manipulation"
+  },
+  {
+    "key": "rw068",
+    "title": "Deep Reinforcement Learning for Robotic Pushing and Picking in Cluttered Environment",
+    "year": "2019",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw069",
+    "title": "Learning relational affordance models for two-arm robots",
+    "year": "2014",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw070",
+    "title": "Topological mapping for robot navigation using affordance features",
+    "year": "2015",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw071",
+    "title": "Linear manipulator: Motion control of an n-link robotic arm mounted on a mobile slider",
+    "year": "2023",
+    "cluster": "reachability and workspace models"
+  },
+  {
+    "key": "rw072",
+    "title": "A Survey of Embodied Learning for Object-centric Robotic Manipulation",
+    "year": "2025",
+    "cluster": "embodied AI/action models"
+  },
+  {
+    "key": "rw073",
+    "title": "HRP: Human affordances for Robotic Pre-training",
+    "year": "2024",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw074",
+    "title": "Approaching motion planning for mobile manipulators considering the uncertainty of self-positioning and object\u2019s pose estimation",
+    "year": "2022",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw075",
+    "title": "Demonstrating Mobile Manipulation in the Wild: A Metrics-Driven Approach",
+    "year": "2023",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw076",
+    "title": "Seeking Human Help to Manage Plan Failure Risks in Semi-Autonomous Mobile Manipulation",
+    "year": "2022",
+    "cluster": "mobile manipulation and base placement"
+  },
+  {
+    "key": "rw077",
+    "title": "A4T: Hierarchical Affordance Detection for Transparent Objects Depth Reconstruction and Manipulation",
+    "year": "2022",
+    "cluster": "robot affordance learning"
+  },
+  {
+    "key": "rw078",
+    "title": "Demonstrating OK-Robot: What Really Matters in Integrating Open-Knowledge Models for Robotics",
+    "year": "2024",
+    "cluster": "robot foundation/vision-language manipulation"
+  },
+  {
+    "key": "rw079",
+    "title": "3D Laser Scanner for Underwater Manipulation",
+    "year": "2018",
+    "cluster": "grasp/contact manipulation"
+  },
+  {
+    "key": "rw080",
+    "title": "Learning to grasp and extract affordances: the Integrated Learning of Grasps and Affordances (ILGA) model",
+    "year": "2015",
+    "cluster": "robot affordance learning"
+  }
+]
