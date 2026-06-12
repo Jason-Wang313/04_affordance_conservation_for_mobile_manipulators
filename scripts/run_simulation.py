@@ -204,6 +204,29 @@ def sample_dataset(seed: int, n: int, split: str, class_affordance: np.ndarray |
     )
 
 
+def with_access_noise(data: Dataset, seed: int, flip_rate: float) -> Dataset:
+    rng = np.random.default_rng(seed)
+    noisy_access = data.access.copy()
+    flips = rng.random(len(noisy_access)) < flip_rate
+    noisy_access[flips] = ~noisy_access[flips]
+    return Dataset(
+        site=data.site,
+        cls=data.cls,
+        site_angle=data.site_angle,
+        base_theta=data.base_theta,
+        base_r=data.base_r,
+        base_xy=data.base_xy,
+        distance=data.distance,
+        approach_dot=data.approach_dot,
+        clutter_count=data.clutter_count,
+        blocked=data.blocked,
+        access=noisy_access,
+        true_affordance=data.true_affordance,
+        success_prob=data.success_prob,
+        y=data.y,
+    )
+
+
 def one_hot(values: np.ndarray, depth: int) -> np.ndarray:
     out = np.zeros((len(values), depth), dtype=float)
     out[np.arange(len(values)), values.astype(int)] = 1.0
@@ -406,6 +429,20 @@ def run_one(seed: int) -> Tuple[List[Dict[str, float | str]], Dict[str, float]]:
     return metrics, diagnostic
 
 
+def run_access_noise(seed: int) -> List[Dict[str, float | str]]:
+    train = sample_dataset(10_000 + seed, 850, "train")
+    test = sample_dataset(20_000 + seed, 3200, "test")
+    rows: List[Dict[str, float | str]] = []
+    for flip_rate in [0.0, 0.02, 0.05, 0.10, 0.20, 0.30]:
+        noisy_train = with_access_noise(train, 40_000 + seed, flip_rate)
+        noisy_test = with_access_noise(test, 50_000 + seed, flip_rate)
+        caq = fit_caq(noisy_train)
+        pred = predict_caq(caq, noisy_test)
+        row = dict(seed=seed, access_flip_rate=flip_rate, **evaluate("caq_noisy_access", test, pred))
+        rows.append(row)
+    return rows
+
+
 def plot_summary(summary: pd.DataFrame) -> None:
     FIGURES.mkdir(parents=True, exist_ok=True)
     order = ["conserved_quotient", "monolithic_logistic", "context_table", "object_only", "access_only"]
@@ -427,6 +464,28 @@ def plot_summary(summary: pd.DataFrame) -> None:
         ax.grid(axis="y", alpha=0.25)
     fig.tight_layout()
     fig.savefig(FIGURES / "results_summary.png", dpi=220)
+    plt.close(fig)
+
+
+def plot_access_noise(noise_df: pd.DataFrame) -> None:
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    grouped = noise_df.groupby("access_flip_rate")[["brier", "log_loss"]].agg(["mean", "sem"])
+    xs = np.array(grouped.index, dtype=float)
+    fig, ax = plt.subplots(figsize=(6.4, 4.0))
+    for metric, label, color in [
+        ("brier", "Brier", "#2f6f73"),
+        ("log_loss", "Log loss", "#a1424a"),
+    ]:
+        means = grouped[(metric, "mean")].to_numpy(dtype=float)
+        errs = 1.96 * grouped[(metric, "sem")].to_numpy(dtype=float)
+        ax.errorbar(100 * xs, means, yerr=errs, marker="o", lw=2, capsize=3, label=label, color=color)
+    ax.set_xlabel("access-gate flip rate (%)")
+    ax.set_ylabel("test error")
+    ax.set_title("CAQ sensitivity to access-gate mistakes")
+    ax.grid(alpha=0.25)
+    ax.legend(frameon=False)
+    fig.tight_layout()
+    fig.savefig(FIGURES / "access_noise_sensitivity.png", dpi=220)
     plt.close(fig)
 
 
@@ -469,7 +528,7 @@ def plot_schematic() -> None:
     plt.close(fig)
 
 
-def write_summary(metrics_df: pd.DataFrame, diag_df: pd.DataFrame) -> None:
+def write_summary(metrics_df: pd.DataFrame, diag_df: pd.DataFrame, noise_df: pd.DataFrame) -> None:
     RESULTS.mkdir(parents=True, exist_ok=True)
     grouped = metrics_df.groupby("model").agg(["mean", "sem"])
     grouped.to_csv(RESULTS / "simulation_summary.csv")
@@ -479,6 +538,9 @@ def write_summary(metrics_df: pd.DataFrame, diag_df: pd.DataFrame) -> None:
     logistic_brier = float(grouped.loc["monolithic_logistic", ("brier", "mean")])
     context_brier = float(grouped.loc["context_table", ("brier", "mean")])
     diag_rate = float(diag_df["changed_gt_unchanged"].mean())
+    noise_grouped = noise_df.groupby("access_flip_rate")[["brier", "log_loss"]].agg(["mean", "sem"])
+    base_noise_brier = float(noise_grouped.loc[0.0, ("brier", "mean")])
+    stress_noise_brier = float(noise_grouped.loc[0.20, ("brier", "mean")])
     lines = [
         "# Simulation Summary",
         "",
@@ -499,9 +561,10 @@ def write_summary(metrics_df: pd.DataFrame, diag_df: pd.DataFrame) -> None:
         f"- Monolithic logistic mean Brier: {logistic_brier:.4f}.",
         f"- Context table mean Brier: {context_brier:.4f}.",
         f"- In object-change diagnostics, the intentionally changed handle class had the largest residual in {diag_rate:.1%} of seeds.",
+        f"- Access-gate noise stress: CAQ Brier rises from {base_noise_brier:.4f} at 0% flips to {stress_noise_brier:.4f} at 20% flips.",
         "",
         "## Interpretation",
-        "The result supports only the factorization mechanism under a known access gate. It does not establish real-world perception, correspondence discovery, or learned access estimation.",
+        "The result supports only the factorization mechanism under a known or highly accurate access gate. The noise sweep shows that gate mistakes quickly degrade calibration, so this is not a raw-perception or deployment claim.",
     ]
     (RESULTS / "experiment_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -511,6 +574,7 @@ def main() -> int:
     FIGURES.mkdir(parents=True, exist_ok=True)
     all_metrics: List[Dict[str, float | str]] = []
     all_diag: List[Dict[str, float]] = []
+    all_noise: List[Dict[str, float | str]] = []
     seeds = list(range(40))
     progress_path = RESULTS / "simulation_progress.txt"
     progress_path.write_text("Simulation started.\n", encoding="utf-8")
@@ -518,22 +582,30 @@ def main() -> int:
         metrics, diag = run_one(seed)
         all_metrics.extend(metrics)
         all_diag.append(diag)
+        all_noise.extend(run_access_noise(seed))
         with progress_path.open("a", encoding="utf-8") as f:
             f.write(f"seed={seed} complete\n")
     metrics_df = pd.DataFrame(all_metrics)
     diag_df = pd.DataFrame(all_diag)
+    noise_df = pd.DataFrame(all_noise)
     metrics_df.to_csv(RESULTS / "simulation_metrics.csv", index=False)
     diag_df.to_csv(RESULTS / "change_residuals.csv", index=False)
+    noise_df.to_csv(RESULTS / "access_noise_sweep.csv", index=False)
     grouped = metrics_df.groupby("model").agg(["mean", "sem"])
     plot_summary(grouped)
+    plot_access_noise(noise_df)
     plot_schematic()
-    write_summary(metrics_df, diag_df)
+    write_summary(metrics_df, diag_df, noise_df)
     metadata = {
         "seeds": seeds,
         "n_train_per_seed": 850,
         "n_test_per_seed": 3200,
         "models": sorted(metrics_df["model"].unique().tolist()),
-        "figures": ["figures/results_summary.png", "figures/benchmark_schematic.png"],
+        "figures": [
+            "figures/results_summary.png",
+            "figures/benchmark_schematic.png",
+            "figures/access_noise_sensitivity.png",
+        ],
     }
     (RESULTS / "simulation_metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
     print(json.dumps(metadata, indent=2))

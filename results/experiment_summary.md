@@ -23,6 +23,7 @@
 - Monolithic logistic mean Brier: 0.0295.
 - Context table mean Brier: 0.0981.
 - In object-change diagnostics, the intentionally changed handle class had the largest residual in 100.0% of seeds.
+- Access-gate noise stress: CAQ Brier rises from 0.0276 at 0% flips to 0.0721 at 20% flips.
 
 ## Interpretation
-The result supports only the factorization mechanism under a known access gate. It does not establish real-world perception, correspondence discovery, or learned access estimation.
+The result supports only the factorization mechanism under a known or highly accurate access gate. The noise sweep shows that gate mistakes quickly degrade calibration, so this is not a raw-perception or deployment claim.

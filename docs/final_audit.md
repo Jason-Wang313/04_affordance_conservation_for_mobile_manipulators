@@ -31,16 +31,18 @@
    - CAQ has the best Brier score, log loss, accuracy, and F1 among the tested methods.
    - Monolithic logistic slightly has the best AUC, which is honestly reported.
    - Controlled object-change residuals flag the changed handle class in 100% of seeds.
+   - Submission-hardening v2 adds access-gate noise stress: CAQ Brier rises from `0.0276` at 0% gate flips to `0.0721` at 20% flips, and log loss rises from `0.1159` to `0.2540`.
 
 9. **Biggest weaknesses**
    - Evidence is synthetic and 2D.
    - Access is known from geometry rather than learned from raw perception.
+   - Access-gate mistakes quickly degrade CAQ, so the method is not robust to learned/noisy gates as currently written.
    - Contact correspondence and contact-class labels are assumed.
    - No hardware validation.
    - The formal result is intentionally simple and conditional.
 
 10. **Paper-readiness judgment**
-    - **Workshop / revise.** The mechanism and audit are coherent, the paper is runnable, and the result is honest. It is not ready as a main-conference submission without stronger 3D or real-robot evidence and a learned or certified access module in realistic scenes.
+    - **Workshop-only for immediate submission; strong-revise for any main-conference target.** The mechanism and audit are coherent, the paper is runnable, and the result is honest. It is not ready as a main-conference submission without stronger 3D or real-robot evidence and a learned or certified access module in realistic scenes. The terminal condition for paper 04 is therefore `workshop-only`.
 
 11. **Exact Downloads PDF path**
     - `C:/Users/wangz/Downloads/04.pdf`
@@ -51,3 +53,9 @@
 13. **Visible Desktop PDF copy status**
     - `pending orchestrator copy`
     - At audit time, `C:\Users\wangz\OneDrive\Desktop\04.pdf` was not present.
+
+## Orchestrator Desktop Copy
+
+Checked: 2026-06-11 00:49:57 +01:00
+Downloads PDF: C:/Users/wangz/Downloads/04.pdf
+Result: copy script exit 0 log C:\Users\wangz\robotics_60_paper_batch\logs\desktop_copy_04_20260611_004953.log

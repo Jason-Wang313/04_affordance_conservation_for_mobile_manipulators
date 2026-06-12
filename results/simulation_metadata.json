@@ -52,6 +52,7 @@
   ],
   "figures": [
     "figures/results_summary.png",
-    "figures/benchmark_schematic.png"
+    "figures/benchmark_schematic.png",
+    "figures/access_noise_sensitivity.png"
   ]
 }

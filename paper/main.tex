@@ -25,9 +25,12 @@
 \begin{document}
 
 \maketitle
+\begin{center}
+{\small Submission-hardening version: v2 (2026-06-12).}
+\end{center}
 
 \begin{abstract}
-Mobile manipulators repeatedly face the same object from different base poses and through different clutter. Standard affordance predictors and base-placement planners usually treat the observed binary success label as the thing to learn or check. This paper argues that this label is the wrong conserved quantity: under stable object state, the object-side contact affordance should be conserved, while the base/clutter access gate should change. We formalize this separation as a conserved affordance quotient (CAQ), estimate the conserved contact-class variable by projecting only accessible observations, and use conservation residuals to flag possible object-state or correspondence failures. A 1100-paper OpenAlex landscape sweep identifies the novelty boundary against affordance learning, reachability maps, task-and-motion planning, clutter rearrangement, and language-conditioned manipulation. Under explicit assumptions we prove a simple concentration result: quotienting access reduces the support burden from contact-by-context bins to contact classes. In a 2D mobile-manipulation simulation with shifted base poses and heavier test clutter, CAQ obtains the best Brier score, log loss, accuracy, and F1 among object-only, access-only, context-table, and monolithic logistic baselines, while a logistic model slightly edges AUC. The evidence is deliberately scoped: it supports the mechanism under a known geometric access gate, not real-robot perception or learned access estimation.
+Mobile manipulators repeatedly face the same object from different base poses and through different clutter. Standard affordance predictors and base-placement planners usually treat the observed binary success label as the thing to learn or check. This paper argues that this label is the wrong conserved quantity: under stable object state, the object-side contact affordance should be conserved, while the base/clutter access gate should change. We formalize this separation as a conserved affordance quotient (CAQ), estimate the conserved contact-class variable by projecting only accessible observations, and use conservation residuals to flag possible object-state or correspondence failures. A 1100-paper OpenAlex landscape sweep identifies the novelty boundary against affordance learning, reachability maps, task-and-motion planning, clutter rearrangement, and language-conditioned manipulation. Under explicit assumptions we prove a simple concentration result: quotienting access reduces the support burden from contact-by-context bins to contact classes. In a 2D mobile-manipulation simulation with shifted base poses and heavier test clutter, CAQ obtains the best Brier score, log loss, accuracy, and F1 among object-only, access-only, context-table, and monolithic logistic baselines, while a logistic model slightly edges AUC. A new access-noise stress test narrows the claim: CAQ Brier rises from 0.0276 with a correct gate to 0.0721 when 20 percent of access labels are flipped. The evidence supports the mechanism under a known or highly accurate geometric access gate, not real-robot perception or learned access estimation.
 \end{abstract}
 
 \section{Introduction}
@@ -151,9 +154,19 @@ CAQ obtains the best calibration-sensitive scores: Brier $0.0276$ and log loss $
 \paragraph{Residual diagnostic.}
 We also run a controlled object-change probe: after training, the handle-class affordance is reduced while other classes remain fixed. The handle residual is larger than the mean unchanged-class residual in 100\% of seeds. This supports the residual as a useful diagnostic in the toy setting, but not as a guaranteed detector in real scenes.
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.68\linewidth]{../figures/access_noise_sensitivity.png}
+    \caption{Access-gate stress test over 40 seeds. CAQ depends strongly on the certified access variable: flipping a fraction of train and test access labels degrades calibration even though contact classes and object affordances remain unchanged. Error bars are 95 percent confidence intervals over seeds.}
+    \label{fig:access-noise}
+\end{figure}
+
+\paragraph{Access-gate stress.}
+Because CAQ treats inaccessible observations as censored, an incorrect gate is not a minor nuisance. We therefore rerun the quotient estimator after randomly flipping the certified access variable at rates from 0 to 30\% in both training and shifted test contexts. Figure~\ref{fig:access-noise} shows the failure mode: Brier score rises from 0.0276 at 0\% flips to 0.0721 at 20\% flips, and log loss rises from 0.1159 to 0.2540. This is a useful negative result. The mechanism is credible only when access is known, certified, or estimated accurately enough that gate errors do not dominate the quotient.
+
 \section{Limitations}
 
-The strongest limitation is that access is known. A real robot must estimate access from noisy geometry, calibration, and control constraints. Second, contact correspondence is assumed. CAQ does not solve object part matching, articulation tracking, or semantic grounding. Third, the experiment is synthetic and 2D. It demonstrates that the broken assumption matters under controlled shifts, not that the method is ready for deployment. Fourth, the formal result is a concentration statement for a mean estimator, not a deep theorem about manipulation. Finally, some affordances are not conserved: opening a drawer, pushing clutter, or deforming an object may change the object state and should intentionally break the quotient.
+The strongest limitation is that access is known. A real robot must estimate access from noisy geometry, calibration, and control constraints, and the new stress test shows that CAQ degrades quickly when this gate is wrong. Second, contact correspondence is assumed. CAQ does not solve object part matching, articulation tracking, or semantic grounding. Third, the experiment is synthetic and 2D. It demonstrates that the broken assumption matters under controlled shifts, not that the method is ready for deployment. Fourth, the formal result is a concentration statement for a mean estimator, not a deep theorem about manipulation. Finally, some affordances are not conserved: opening a drawer, pushing clutter, or deforming an object may change the object state and should intentionally break the quotient.
 
 \section{Conclusion}
 
@@ -161,7 +174,7 @@ Mobile manipulation makes affordance labels context-censored. This paper propose
 
 \section*{Reproducibility Statement}
 
-All scripts are included in the repository. The literature matrix is generated by \texttt{python scripts/retrieve\_literature.py}; decision documents and BibTeX by \texttt{python scripts/analyze\_literature.py}; simulation evidence by \texttt{python scripts/run\_simulation.py}. The manuscript uses the official ICLR 2026 template recorded in \texttt{paper/template\_provenance.md}.
+All scripts are included in the repository. The literature matrix is generated by \texttt{python scripts/retrieve\_literature.py}; decision documents and BibTeX by \texttt{python scripts/analyze\_literature.py}; simulation evidence, access-noise stress results, and figures by \texttt{python scripts/run\_simulation.py}. The manuscript uses the official ICLR 2026 template recorded in \texttt{paper/template\_provenance.md}.
 
 \bibliographystyle{iclr2026_conference}
 \bibliography{references}

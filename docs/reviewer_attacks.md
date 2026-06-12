@@ -10,7 +10,7 @@
 4. Attack: A larger policy could learn this implicitly.
    Response: Possibly, but the paper's claim is about identifiability and sample support. The central mechanism is explicit quotient projection and auditable residuals.
 5. Attack: The access gate is assumed known.
-   Response: Correct. This is a limitation and a deliberate scope choice. The paper proves and tests the mechanism when access is certified by geometry, not from raw perception.
+   Response: Correct. This is a limitation and a deliberate scope choice. Submission-hardening v2 adds an access-noise stress test: CAQ Brier rises from 0.0276 at 0% gate flips to 0.0721 at 20% flips.
 6. Attack: Synthetic evidence is too weak.
    Response: Yes for submission strength. The final audit should likely recommend workshop/revise unless the simulation results are unusually compelling.
 7. Attack: Conservation is trivial if the object does not change.
@@ -25,6 +25,8 @@
    Response: The simplicity is intentional: it isolates the variable change. The paper should not oversell mathematical depth.
 12. Attack: The 1000-paper sweep is API-level, not full-text.
    Response: Correct. The audit should state literature coverage as metadata/abstract-level with hostile top-set extraction.
+13. Attack: If the access gate is learned, quotienting can amplify perception errors.
+   Response: Correct. The current paper should not claim learned-gate robustness. The access-noise sweep is the negative evidence and should be cited directly.
 
 ## Hostile Prior Work Most Likely To Be Cited By Reviewers
 | Rank | Title | Year | Cluster | Less novel | Leaves open |
