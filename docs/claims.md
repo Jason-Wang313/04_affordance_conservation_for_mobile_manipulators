@@ -13,7 +13,12 @@ Status: proof sketch will be included. This is not a claim about arbitrary learn
 ## Experimental Claim
 In a 2D mobile-manipulation simulator with fixed object contacts, shifted base-pose distributions, and changed clutter, conserved quotient prediction should reduce Brier/log-loss and false blocked-contact predictions relative to object-only, access-only, context-table, and monolithic logistic baselines.
 
-Status: to be tested by `scripts/run_simulation.py`.
+Status: supported in the synthetic simulator by `scripts/run_simulation.py`. Across 40 seeds, CAQ has the best Brier score (0.0276), log loss (0.1159), accuracy, and F1; monolithic logistic slightly has the best AUC.
+
+## Access-Gate Stress Claim
+CAQ is fragile to incorrect access certificates. Randomly flipping the access gate in training and shifted test contexts raises CAQ Brier from 0.0276 at 0% flips to 0.0721 at 20% flips and log loss from 0.1159 to 0.2540.
+
+Status: supported by `results/access_noise_sweep.csv`; this is a limitation, not a positive deployment claim.
 
 ## Diagnostic Claim
 Large conservation residuals after quotienting indicate either a wrong access certificate, wrong correspondence, or a true object/contact state change.
@@ -24,4 +29,5 @@ Status: conceptual and partially testable; should be framed as a diagnostic, not
 - No claim of superior large-scale robot foundation modeling.
 - No claim of solving generic task-and-motion planning.
 - No claim of real-world deployment or hardware robustness.
+- No claim of robustness to noisy or learned access gates.
 - No claim that every affordance is conserved under all clutter changes.

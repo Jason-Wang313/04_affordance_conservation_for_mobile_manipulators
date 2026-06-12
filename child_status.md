@@ -52,3 +52,20 @@ Failures and recovery:
 
 Next step:
 - None. The child run is complete unless the orchestrator appends Desktop-copy status later.
+
+Exit code: 0
+End time: 2026-06-11 00:49:53 +01:00
+PDF exists: True
+
+## Submission Hardening v2
+
+Completed: 2026-06-12 20:12:00 +01:00
+Terminal decision: workshop-only
+Canonical PDF: C:/Users/wangz/Downloads/04.pdf
+
+Key changes:
+- Added access-gate noise stress test.
+- Added `results/access_noise_sweep.csv` and `figures/access_noise_sensitivity.png`.
+- Narrowed claims to known or highly accurate access gates.
+- Added submission attack/version/readiness docs.
+- Recompiled paper and replaced the canonical Downloads PDF.
