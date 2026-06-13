@@ -3,69 +3,63 @@
 Stage: complete
 
 Current facts:
-- `plan.md` created first.
-- Literature sweep complete: `docs/related_work_matrix.csv` contains 1100 deduplicated OpenAlex records.
-- Novelty artifacts complete:
-  - `docs/literature_map.md`
-  - `docs/hostile_prior_work.md`
-  - `docs/novelty_boundary_map.md`
-  - `docs/novelty_decision.md`
-  - `docs/claims.md`
-  - `docs/reviewer_attacks.md`
-  - `docs/final_audit.md`
-- Chosen thesis: Conserved Affordance Quotients for mobile manipulators.
-- Runnable evidence complete:
-  - `scripts/run_simulation.py`
-  - `results/simulation_metrics.csv`
-  - `results/simulation_summary.csv`
-  - `results/change_residuals.csv`
-  - `results/experiment_summary.md`
-  - `figures/results_summary.png`
-  - `figures/benchmark_schematic.png`
-- Official ICLR 2026 template source recorded in `paper/template_provenance.md`; paper uses copied official style/BST/natbib/math files.
-- Manuscript source: `paper/main.tex`.
-- Direct LaTeX build completed successfully with final `pdflatex` exit code 0.
-- Final PDF path verified: `C:\Users\wangz\Downloads\04.pdf`.
-- Desktop PDF status: `pending orchestrator copy`; `C:\Users\wangz\OneDrive\Desktop\04.pdf` was absent at audit time.
-- Public GitHub repository created and pushed:
-  - `https://github.com/Jason-Wang313/04_affordance_conservation_for_mobile_manipulators`
-- Current pushed branch: `master`.
 
-Commands run:
-- `python scripts/retrieve_literature.py` with explicit 300000 ms timeout.
-- `python scripts/analyze_literature.py` with explicit 300000 ms timeout.
-- `python scripts/run_simulation.py` with explicit 300000 ms timeout.
-- `python scripts/fetch_iclr_template.py` with explicit 300000 ms timeout.
-- Direct LaTeX build from `paper/`: `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`, final `pdflatex`, all with explicit 300000 ms timeout wrappers.
-- `Copy-Item paper\main.pdf C:\Users\wangz\Downloads\04.pdf`.
-- `gh repo create 04_affordance_conservation_for_mobile_manipulators --public --source . --remote origin --description ...`.
-- `git add .`
-- `git commit -m "Complete affordance conservation paper run"`
-- `git push -u origin master`
+- Chosen thesis: Conserved Affordance Quotients for mobile manipulators.
+- Literature sweep complete: `docs/related_work_matrix.csv` contains 1100 deduplicated OpenAlex records.
+- Full-scale execution plan created before the v3 expansion: `docs/full_scale_execution_plan.md`.
+- Baseline evidence reproduced with `python scripts/run_simulation.py`.
+- Full-scale evidence complete with `scripts/run_full_scale_caq.py`.
+- Full-scale scale:
+  - Seed scale: 20
+  - Compact metric rows: 7040
+  - Evaluated test predictions, counting model/suite evaluations: 10,844,000
+- Main result:
+  - Medium-shift CAQ Brier: 0.0294
+  - Medium-shift oracle intrinsic Brier: 0.0293
+  - Medium-shift context-table Brier: 0.1009
+  - 20% symmetric access-gate error CAQ Brier: 0.0726
+- Manuscript source: `paper/main.tex`.
+- Final local build completed successfully.
+- Final PDF copied to and verified at `C:\Users\wangz\Downloads\04.pdf`.
+- Verified Downloads PDF page count: 28.
+- Verified Downloads PDF file size: 1,136,853 bytes.
+- PDF body scan found expected full-scale claims and no internal hardening markers.
+- LaTeX log scan found no unresolved citations/references, overfull boxes, fatal errors, or emergency stops.
+- Public GitHub repository:
+  - `https://github.com/Jason-Wang313/04_affordance_conservation_for_mobile_manipulators`
+
+Important files:
+
+- `docs/full_scale_execution_plan.md`
+- `docs/full_scale_results_summary.md`
+- `results/full_scale/full_scale_summary.json`
+- `results/full_scale/*.csv`
+- `paper/figures/*.png`
+- `paper/main.tex`
+- `C:\Users\wangz\Downloads\04.pdf`
+
+Commands run in v3:
+
+- `python scripts/run_simulation.py`
+- `python scripts/run_full_scale_caq.py --suite main --seed-scale 20 --fresh`
+- `python scripts/run_full_scale_caq.py --suite access --seed-scale 20`
+- `python scripts/run_full_scale_caq.py --suite correspondence --seed-scale 20`
+- `python scripts/run_full_scale_caq.py --suite support --seed-scale 20`
+- `python scripts/run_full_scale_caq.py --suite residual --seed-scale 20`
+- `python scripts/run_full_scale_caq.py --suite geometry --seed-scale 20`
+- `python scripts/run_full_scale_caq.py --suite negative --seed-scale 20`
+- `python scripts/run_full_scale_caq.py --suite summarize --seed-scale 20`
+- `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`, final `pdflatex` from `paper/`
+- `Copy-Item paper\main.pdf C:\Users\wangz\Downloads\04.pdf`
 
 Failures and recovery:
-- Duplicate literature records appeared from different DOI/OpenAlex entries with identical titles.
-  - Recovery: repaired retrieval dedupe to merge by normalized title before DOI and reran successfully.
-- First LaTeX bibliography build failed because OpenAlex BibTeX metadata contained non-ASCII combining characters.
-  - Recovery: patched `scripts/analyze_literature.py` to transliterate BibTeX metadata to ASCII, regenerated `paper/references.bib`, cleared stale `main.bbl`, and rebuilt successfully.
-- MiKTeX printed update notices, but the final build exited successfully and log scan found no unresolved citation/reference/fatal-error lines.
+
+- Initial reproduction run hit the short command timeout after seed 20; reran with a longer timeout and completed.
+- First full-scale access suite was too slow because it regenerated train/test worlds for every error mode and rate; patched it to reuse per-seed worlds.
+- Residual and geometry suites exceeded time windows at their first full sample sizes; patched them to keep the full condition grids and seed scale while using compact per-condition sample sizes suitable for secondary diagnostics.
+- First manuscript compile was 18 pages; expanded with substantive appendices and full-scale audit material until the verified final was 28 pages.
+- A LaTeX macro collision with `\E` was fixed by renaming the expectation/probability macros.
 
 Next step:
-- None. The child run is complete unless the orchestrator appends Desktop-copy status later.
 
-Exit code: 0
-End time: 2026-06-11 00:49:53 +01:00
-PDF exists: True
-
-## Submission Hardening v2
-
-Completed: 2026-06-12 20:12:00 +01:00
-Terminal decision: workshop-only
-Canonical PDF: C:/Users/wangz/Downloads/04.pdf
-
-Key changes:
-- Added access-gate noise stress test.
-- Added `results/access_noise_sweep.csv` and `figures/access_noise_sensitivity.png`.
-- Narrowed claims to known or highly accurate access gates.
-- Added submission attack/version/readiness docs.
-- Recompiled paper and replaced the canonical Downloads PDF.
+- Commit and push the v3 full-scale final state.
