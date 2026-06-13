@@ -1,0 +1,157 @@
+full-scale suite=main seed_scale=20 logistic_steps=24
+main_shift iid_left_light complete
+main_shift mild_cross complete
+main_shift medium_cross complete
+main_shift severe_cross complete
+main_shift reverse_heavy_to_light complete
+full-scale suite=access seed_scale=20 logistic_steps=24
+access_error symmetric_random rate=0.00 complete
+access_error symmetric_random rate=0.02 complete
+access_error symmetric_random rate=0.05 complete
+access_error symmetric_random rate=0.10 complete
+access_error symmetric_random rate=0.15 complete
+access_error symmetric_random rate=0.20 complete
+access_error symmetric_random rate=0.30 complete
+access_error false_access_only rate=0.00 complete
+access_error false_access_only rate=0.02 complete
+access_error false_access_only rate=0.05 complete
+access_error false_access_only rate=0.10 complete
+access_error false_access_only rate=0.15 complete
+full-scale suite=access seed_scale=20 logistic_steps=24
+access_error seed=0 complete
+access_error seed=1 complete
+access_error seed=2 complete
+access_error seed=3 complete
+access_error seed=4 complete
+access_error seed=5 complete
+access_error false_access_only rate=0.20 complete
+access_error seed=6 complete
+access_error seed=7 complete
+access_error seed=8 complete
+access_error seed=9 complete
+access_error seed=10 complete
+access_error seed=11 complete
+access_error seed=12 complete
+access_error seed=13 complete
+access_error seed=14 complete
+access_error seed=15 complete
+access_error seed=16 complete
+access_error seed=17 complete
+access_error seed=18 complete
+access_error seed=19 complete
+full-scale suite=correspondence seed_scale=20 logistic_steps=24
+correspondence seed=0 complete
+correspondence seed=1 complete
+correspondence seed=2 complete
+correspondence seed=3 complete
+correspondence seed=4 complete
+correspondence seed=5 complete
+correspondence seed=6 complete
+correspondence seed=7 complete
+correspondence seed=8 complete
+correspondence seed=9 complete
+correspondence seed=10 complete
+correspondence seed=11 complete
+correspondence seed=12 complete
+correspondence seed=13 complete
+correspondence seed=14 complete
+correspondence seed=15 complete
+correspondence seed=16 complete
+correspondence seed=17 complete
+correspondence seed=18 complete
+correspondence seed=19 complete
+full-scale suite=support seed_scale=20 logistic_steps=24
+support n_train=80 complete
+support n_train=160 complete
+support n_train=320 complete
+support n_train=640 complete
+support n_train=1280 complete
+support n_train=2560 complete
+full-scale suite=residual seed_scale=20 logistic_steps=24
+residual class=handle magnitude=0.00 complete
+residual class=handle magnitude=0.10 complete
+residual class=handle magnitude=0.20 complete
+residual class=handle magnitude=0.35 complete
+residual class=handle magnitude=0.55 complete
+residual class=slot magnitude=0.00 complete
+residual class=slot magnitude=0.10 complete
+residual class=slot magnitude=0.20 complete
+residual class=slot magnitude=0.35 complete
+residual class=slot magnitude=0.55 complete
+residual class=button magnitude=0.00 complete
+residual class=button magnitude=0.10 complete
+residual class=button magnitude=0.20 complete
+full-scale suite=residual seed_scale=20 logistic_steps=24
+residual class=button magnitude=0.35 complete
+residual seed=0 complete
+residual seed=1 complete
+residual seed=2 complete
+residual seed=3 complete
+residual seed=4 complete
+residual seed=5 complete
+residual seed=6 complete
+residual seed=7 complete
+residual seed=8 complete
+residual seed=9 complete
+residual seed=10 complete
+residual seed=11 complete
+residual seed=12 complete
+full-scale suite=residual seed_scale=20 logistic_steps=24
+residual seed=0 complete
+residual seed=1 complete
+residual seed=2 complete
+residual seed=3 complete
+residual seed=4 complete
+residual seed=5 complete
+residual seed=6 complete
+residual seed=7 complete
+residual seed=8 complete
+residual seed=9 complete
+residual seed=10 complete
+residual seed=11 complete
+residual seed=12 complete
+residual seed=13 complete
+residual seed=14 complete
+residual seed=15 complete
+residual seed=16 complete
+residual seed=17 complete
+residual seed=18 complete
+residual seed=19 complete
+full-scale suite=geometry seed_scale=20 logistic_steps=24
+geometry reach=0.72 clutter=0.65 complete
+geometry reach=0.72 clutter=1.00 complete
+geometry reach=0.72 clutter=1.35 complete
+geometry reach=0.72 clutter=1.70 complete
+geometry reach=0.90 clutter=0.65 complete
+geometry reach=0.90 clutter=1.00 complete
+geometry reach=0.90 clutter=1.35 complete
+geometry reach=0.90 clutter=1.70 complete
+geometry reach=1.08 clutter=0.65 complete
+geometry reach=1.08 clutter=1.00 complete
+geometry reach=1.08 clutter=1.35 complete
+full-scale suite=geometry seed_scale=20 logistic_steps=24
+geometry reach=1.08 clutter=1.70 complete
+geometry reach=0.72 clutter=0.65 complete
+geometry reach=0.72 clutter=1.00 complete
+geometry reach=0.72 clutter=1.35 complete
+geometry reach=0.72 clutter=1.70 complete
+geometry reach=0.90 clutter=0.65 complete
+geometry reach=0.90 clutter=1.00 complete
+geometry reach=0.90 clutter=1.35 complete
+geometry reach=0.90 clutter=1.70 complete
+geometry reach=1.08 clutter=0.65 complete
+geometry reach=1.08 clutter=1.00 complete
+geometry reach=1.08 clutter=1.35 complete
+geometry reach=1.08 clutter=1.70 complete
+geometry reach=1.24 clutter=0.65 complete
+geometry reach=1.24 clutter=1.00 complete
+geometry reach=1.24 clutter=1.35 complete
+geometry reach=1.24 clutter=1.70 complete
+full-scale suite=negative seed_scale=20 logistic_steps=24
+negative_control strength=0.00 complete
+negative_control strength=0.25 complete
+negative_control strength=0.50 complete
+negative_control strength=0.75 complete
+negative_control strength=1.00 complete
+full-scale suite=summarize seed_scale=20 logistic_steps=24
+summarize complete

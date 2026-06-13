@@ -1,15 +1,48 @@
 # Affordance Conservation for Mobile Manipulators
 
-This repository contains the paper-04 child run for a robotics research batch.
-The chosen thesis is **Conserved Affordance Quotients**: observed mobile-manipulation success labels should be factored into a conserved contact-frame affordance and a mutable base/clutter access gate.
+This repository contains paper 04 in the robotics research batch. The thesis is **Conserved Affordance Quotients (CAQ)**: observed mobile-manipulation success labels should be factored into a conserved contact-frame affordance and a mutable base/clutter access gate.
+
+## Final Artifact
+
+- Final PDF: `C:/Users/wangz/Downloads/04.pdf`
+- Verified page count: 28 pages
+- Final manuscript source: `paper/main.tex`
+- Full-scale execution plan: `docs/full_scale_execution_plan.md`
+
+## Main Evidence
+
+The final version expands the original mechanism test into an eight-suite synthetic study:
+
+- Main base/clutter distribution shifts
+- Access-gate error taxonomy
+- Contact-correspondence stress
+- Support-burden sweeps
+- Residual diagnostics
+- Geometry/clutter sensitivity
+- Calibration analysis
+- Conservation-violation negative control
+
+Final scale:
+
+- Seed scale: 20
+- Compact metric rows: 7040
+- Evaluated test predictions, counting model/suite evaluations: 10,844,000
+- Full-scale outputs: `results/full_scale/`
+- Paper figures: `paper/figures/`
+
+Key readout:
+
+- Medium-shift CAQ Brier: 0.0294, nearly matching oracle intrinsic 0.0293.
+- Medium-shift CAQ improves over monolithic logistic 0.0313, interaction logistic 0.0323, access-only 0.0361, object-only 0.0849, and context-table 0.1009.
+- Correct-gate CAQ Brier in the access taxonomy is 0.0282; 20% symmetric gate error raises it to 0.0726.
+- At 160 training samples and 8 context bins, CAQ Brier is 0.0285 versus context table 0.0967.
+- When conservation is deliberately false, CAQ Brier rises from 0.0284 to 0.0519.
 
 ## Reproduce
 
 ```powershell
-python scripts/retrieve_literature.py
-python scripts/analyze_literature.py
 python scripts/run_simulation.py
-python scripts/fetch_iclr_template.py
+python scripts/run_full_scale_caq.py --suite all --seed-scale 20
 cd paper
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 bibtex main
@@ -17,27 +50,8 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The compiled batch deliverable is saved at:
-
-```text
-C:/Users/wangz/Downloads/04.pdf
-```
-
-## Key Artifacts
-
-- `docs/related_work_matrix.csv`: 1100-entry literature sweep.
-- `docs/literature_map.md`: field map and assumptions.
-- `docs/hostile_prior_work.md`: 100-paper hostile prior-work set.
-- `docs/novelty_boundary_map.md`: what is and is not novel.
-- `docs/novelty_decision.md`: selected thesis and rejected alternatives.
-- `docs/claims.md`: supported and unsupported claims.
-- `docs/reviewer_attacks.md`: likely reviewer attacks.
-- `results/experiment_summary.md`: simulation readout.
-- `results/access_noise_sweep.csv`: access-gate noise stress test.
-- `figures/access_noise_sensitivity.png`: access-gate noise sensitivity figure.
-- `paper/main.tex`: anonymous ICLR-style manuscript.
+The final run was executed suite by suite with the same seed scale to keep progress auditable and RAM use low.
 
 ## Scope
 
-The evidence is a synthetic mechanism test with a known geometric access gate.
-Submission-hardening v2 adds an access-gate noise stress test; CAQ Brier rises from 0.0276 at 0% gate flips to 0.0721 at 20% flips. It does not claim real-robot deployment, learned access estimation, or automatic contact correspondence.
+This is a full-scale synthetic mechanism paper, not a real-robot deployment claim. The evidence assumes a known or accurate access gate, stable contact correspondence, and stable object/contact state. The final manuscript measures the boundary cases rather than hiding them: access-gate errors, correspondence corruption, residual limitations, and non-conserved affordances are all reported.

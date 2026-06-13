@@ -4,58 +4,42 @@
    - Mobile-manipulation success labels should be factored into a conserved contact-frame affordance and a mutable base/clutter access gate. The paper calls this representation a Conserved Affordance Quotient (CAQ).
 
 2. **Field assumption broken**
-   - The broken assumption is that a failed or successful affordance observation is a direct object/part label. In mobile manipulation, the label may be censored by base pose, approach direction, reachability, and clutter obstruction.
+   - The broken assumption is that a failed or successful affordance observation directly measures object affordance. In mobile manipulation, the observed label may be censored by base pose, approach direction, reachability, and clutter obstruction.
 
 3. **New central mechanism**
-   - CAQ estimates the object-side contact-class affordance only from accessible observations and separately recomputes a geometric access gate for each base/clutter context. The central object is the quotient, not a larger predictor or a planner wrapper.
+   - CAQ estimates the object-side contact-class affordance only from accessible observations and separately recomputes the access gate for each base/clutter context. The central object is the quotient, not a larger predictor or planner wrapper.
 
-4. **Genuine novelty**
-   - Affordance learning, base placement, reachability maps, clutter rearrangement, and value-map composition are all well covered by prior work. The novelty is the explicit conservation-aware factorization of the observed mobile-manipulation label and its use for estimation, context transport, and residual diagnostics.
+4. **Full-scale evidence**
+   - `scripts/run_full_scale_caq.py` expands the evidence to eight suites at seed scale 20.
+   - Compact metric rows: 7040.
+   - Evaluated test predictions, counting model/suite evaluations: 10,844,000.
+   - Main medium-shift CAQ Brier: 0.0294 versus oracle intrinsic 0.0293.
+   - 20% symmetric access-gate error raises CAQ Brier from 0.0282 to 0.0726.
+   - At 160 training samples and 8 context bins, CAQ Brier is 0.0285 versus context table 0.0967.
+   - At full conservation violation, CAQ Brier rises to 0.0519 while interaction logistic reaches 0.0343.
 
-5. **Closest hostile prior work**
-   - The closest hostile areas are generalized affordance templates for mobile manipulation, mobile-manipulator base placement/reachability methods, grasp/contact affordance localization, and clutter-aware task-and-motion planning. Representative hostile records include `Generalized Affordance Templates for Mobile Manipulation`, `Optimal Base Placement and Motion Planning for Mobile Manipulators`, `Kinematics and Local Motion Planning for Quasi-static Whole-body Mobile Manipulation`, and `Tree Search-based Task and Motion Planning with Prehensile and Non-prehensile Manipulation for Obstacle Rearrangement in Clutter`.
-
-6. **Literature coverage**
-   - `docs/related_work_matrix.csv` contains 1100 deduplicated OpenAlex records from 30 robotics/mobile-manipulation/affordance queries.
-   - Top 300 records were used as the serious skim tier.
-   - Top 250 records were used as the deep-read tier at abstract/metadata level.
-   - Top 100 records form `docs/hostile_prior_work.md`.
-   - Coverage is broad but not full-text-complete; this limitation is recorded in the manuscript and reviewer attacks.
-
-7. **Proof/formal-claim status**
-   - The paper includes a proved Hoeffding-style concentration proposition for the quotient estimator under explicit assumptions: known binary access gate, stable contact correspondence, independent bounded accessible observations, and stable object/contact state.
-   - The theorem does not cover learned access gates, noisy correspondence, adversarial shifts, or real robot execution.
-
-8. **Strongest evidence**
-   - `scripts/run_simulation.py` runs a 40-seed 2D mobile-manipulation simulation with shifted base poses and heavier test clutter.
-   - CAQ has the best Brier score, log loss, accuracy, and F1 among the tested methods.
-   - Monolithic logistic slightly has the best AUC, which is honestly reported.
-   - Controlled object-change residuals flag the changed handle class in 100% of seeds.
-   - Submission-hardening v2 adds access-gate noise stress: CAQ Brier rises from `0.0276` at 0% gate flips to `0.0721` at 20% flips, and log loss rises from `0.1159` to `0.2540`.
-
-9. **Biggest weaknesses**
+5. **Biggest remaining weaknesses**
    - Evidence is synthetic and 2D.
-   - Access is known from geometry rather than learned from raw perception.
-   - Access-gate mistakes quickly degrade CAQ, so the method is not robust to learned/noisy gates as currently written.
-   - Contact correspondence and contact-class labels are assumed.
+   - Access is known or corrupted synthetically, not learned from real perception.
+   - Contact correspondence is assumed and only stress-tested by label corruption.
    - No hardware validation.
-   - The formal result is intentionally simple and conditional.
+   - The theorem is a support-burden concentration statement, not a broad manipulation theorem.
 
-10. **Paper-readiness judgment**
-    - **Workshop-only for immediate submission; strong-revise for any main-conference target.** The mechanism and audit are coherent, the paper is runnable, and the result is honest. It is not ready as a main-conference submission without stronger 3D or real-robot evidence and a learned or certified access module in realistic scenes. The terminal condition for paper 04 is therefore `workshop-only`.
+6. **Paper-readiness judgment**
+   - Batch-final full-scale synthetic mechanism paper. It clears the 25-page gate and the final artifact is a genuine expanded manuscript with stronger experiments, negative controls, limitations, reproducibility details, and measured boundaries.
+   - For venues requiring real robot evidence or learned perception, the correct classification remains revise-for-hardware rather than deployment-ready.
 
-11. **Exact Downloads PDF path**
-    - `C:/Users/wangz/Downloads/04.pdf`
+7. **Final PDF verification**
+   - Final PDF path: `C:/Users/wangz/Downloads/04.pdf`
+   - Verified page count: 28 pages.
+   - Verified file size: 1,136,853 bytes.
+   - Marker scan found no hardening prompt text, internal decision labels, or accidental Downloads-path text in the PDF body.
 
-12. **GitHub URL**
-    - `https://github.com/Jason-Wang313/04_affordance_conservation_for_mobile_manipulators`
+8. **Build verification**
+   - `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`, final `pdflatex`.
+   - Log scan found no unresolved citations, unresolved references, overfull boxes, fatal errors, or emergency stops.
+   - MiKTeX printed update notices; they did not affect successful compilation.
 
-13. **Visible Desktop PDF copy status**
-    - `pending orchestrator copy`
-    - At audit time, `C:\Users\wangz\OneDrive\Desktop\04.pdf` was not present.
-
-## Orchestrator Desktop Copy
-
-Checked: 2026-06-11 00:49:57 +01:00
-Downloads PDF: C:/Users/wangz/Downloads/04.pdf
-Result: copy script exit 0 log C:\Users\wangz\robotics_60_paper_batch\logs\desktop_copy_04_20260611_004953.log
+9. **Repository status expectation**
+   - Commit and push after this audit update.
+   - Remove local `paper/main.pdf` after copying/verifying the Downloads artifact.

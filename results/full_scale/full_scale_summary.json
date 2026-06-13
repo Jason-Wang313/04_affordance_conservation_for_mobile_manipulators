@@ -1,0 +1,30 @@
+{
+  "seed_scale": 20,
+  "figure_files": [
+    "main_brier_leaderboard.png",
+    "main_calibration_leaderboard.png",
+    "calibration_scatter.png",
+    "access_error_taxonomy.png",
+    "support_burden.png",
+    "correspondence_stress.png",
+    "residual_detection.png",
+    "geometry_sensitivity_heatmap.png",
+    "negative_control.png"
+  ],
+  "csv_files": [
+    "access_error_taxonomy.csv",
+    "correspondence_stress.csv",
+    "geometry_sensitivity.csv",
+    "leaderboard.csv",
+    "main_shift_metrics.csv",
+    "negative_controls.csv",
+    "residual_diagnostics.csv",
+    "support_burden.csv"
+  ],
+  "medium_best_brier_model": "oracle_intrinsic",
+  "medium_best_brier": 0.02929342833333328,
+  "medium_best_auc_model": "oracle_intrinsic",
+  "medium_best_auc": 0.8880690953377833,
+  "compact_metric_rows": 7040,
+  "evaluated_test_predictions_counting_models": 10844000
+}
