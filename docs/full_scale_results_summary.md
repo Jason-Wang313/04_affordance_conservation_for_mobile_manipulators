@@ -49,3 +49,13 @@ The expanded suite is a synthetic mechanism study. It strengthens the CAQ claim 
 - `paper/figures/residual_detection.png`
 - `paper/figures/geometry_sensitivity_heatmap.png`
 - `paper/figures/negative_control.png`
+
+## Final PDF Verification
+
+- Canonical PDF: `C:/Users/wangz/Downloads/04.pdf`
+- Pages: 28
+- Size: 1,135,968 bytes
+- SHA256: `BE3F6E60B846255AF672975E04F62AC8B3BDCBB040A15321CF6C3EC218031EA0`
+- VLA-style boxed-link audit: 238 annotations on pages `[(1, 41), (2, 39), (3, 2), (4, 20), (5, 122), (7, 2), (8, 2), (9, 1), (10, 2), (11, 1), (13, 1), (19, 1), (20, 1), (23, 2), (26, 1)]`; green = 218, red = 20, cyan = 0; all borders `(0, 0, 1)`.
+- Oversized annotation audit: 0 malformed page-edge rectangles.
+- Visual audit: rendered pages 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 19, 20, 23, and 26; boxes are crisp and aligned.

@@ -148,3 +148,21 @@ Before Paper 04 can be considered final:
 11. Local build artifacts that should not be final deliverables are removed or ignored.
 12. The repository is committed and pushed.
 13. Only then may work proceed to Paper 05.
+
+## VLA-Style Link Hardening Addendum
+
+Checked: 2026-06-21
+
+Action: Added explicit VLA-style `\hypersetup` policy after the existing `hyperref` import, split one page-crossing citation cluster without adding or removing citation keys, rebuilt with `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`, copied the final PDF to Downloads, and removed local `paper/main.pdf`.
+
+Decision: Final link styling matches the visible VLA-v4 role model; this pass preserves green citation/URL boxes and red internal-reference boxes while eliminating a malformed page-edge citation annotation.
+
+Downloads PDF: `C:/Users/wangz/Downloads/04.pdf` (28 pages, 1,135,968 bytes, SHA256 `BE3F6E60B846255AF672975E04F62AC8B3BDCBB040A15321CF6C3EC218031EA0`)
+
+Link audit: 238 annotations on pages `[(1, 41), (2, 39), (3, 2), (4, 20), (5, 122), (7, 2), (8, 2), (9, 1), (10, 2), (11, 1), (13, 1), (19, 1), (20, 1), (23, 2), (26, 1)]`; green = 218, red = 20, cyan = 0; all borders `(0, 0, 1)`.
+
+Oversized annotation audit: 0 malformed page-edge rectangles.
+
+Visual audit: rendered pages 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 19, 20, 23, and 26; boxes are crisp and aligned.
+
+Filename policy: no duplicate `C:/Users/wangz/Downloads/4.pdf` created.

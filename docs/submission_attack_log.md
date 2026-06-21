@@ -26,3 +26,9 @@ Date: 2026-06-13 23:25:00 +01:00
 ## Stop Condition
 
 Stopped after the full-scale v3 pass because recoverable synthetic-evidence weaknesses were addressed and the remaining weaknesses require external hardware/perception work, not more local simulation.
+
+## VLA-Style Link Hardening
+
+- Attack: The final PDF must visually match the VLA-v4 role-model boxed-link style, and dense citation pages must not contain malformed page-edge boxes.
+  - Response: Added the explicit VLA-style link-border policy, split one page-crossing citation cluster without changing cited keys, rebuilt the final 28-page PDF, and verified 238 annotations with green citation/URL boxes, red internal-reference boxes, no cyan boxes, one-point borders, and 0 oversized page-edge rectangles.
+  - Residual risk: This is presentation hardening only; it does not change the synthetic-evidence and hardware caveats above.

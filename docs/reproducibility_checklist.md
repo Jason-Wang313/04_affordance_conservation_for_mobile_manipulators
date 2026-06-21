@@ -38,7 +38,7 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 - `results/full_scale/leaderboard.csv`: 18 rows.
 - `results/full_scale/full_scale_summary.json`: seed scale 20, 7040 compact rows, 10,844,000 evaluated test predictions counted across model/suite evaluations.
 - `paper/figures/*.png`: final paper figures.
-- `C:/Users/wangz/Downloads/04.pdf`: final verified 28-page PDF.
+- `C:/Users/wangz/Downloads/04.pdf`: final verified 28-page PDF, 1,135,968 bytes, SHA256 `BE3F6E60B846255AF672975E04F62AC8B3BDCBB040A15321CF6C3EC218031EA0`.
 
 ## Verification
 
@@ -46,3 +46,6 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 - `pdftotext` confirms expected full-scale claims including `10.844`, `0.0294`, and `0.0726`.
 - PDF body scan has no hardening prompt text, internal decision labels, or accidental `Downloads` path text.
 - `rg` log scan has no unresolved citations, unresolved references, overfull boxes, fatal errors, or emergency stops.
+- VLA-style boxed-link audit confirms 238 annotations; green = 218, red = 20, cyan = 0; all borders `(0, 0, 1)`.
+- Oversized annotation audit confirms 0 malformed page-edge rectangles.
+- Visual PDF audit rendered pages 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 19, 20, 23, and 26; boxes are crisp and aligned.

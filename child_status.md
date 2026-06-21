@@ -1,6 +1,6 @@
 # Child Status
 
-Stage: complete
+Stage: VLA-style boxed-link hardening complete
 
 Current facts:
 
@@ -22,7 +22,14 @@ Current facts:
 - Final local build completed successfully.
 - Final PDF copied to and verified at `C:\Users\wangz\Downloads\04.pdf`.
 - Verified Downloads PDF page count: 28.
-- Verified Downloads PDF file size: 1,136,853 bytes.
+- Verified Downloads PDF file size: 1,135,968 bytes.
+- Verified Downloads PDF SHA256: `BE3F6E60B846255AF672975E04F62AC8B3BDCBB040A15321CF6C3EC218031EA0`.
+- Added explicit VLA-style boxed-link policy after the existing `hyperref` import in `paper/main.tex`.
+- Split a page-crossing citation cluster without adding or removing citation keys so link boxes remain local.
+- Verified final link inventory: 238 annotations on pages `[(1, 41), (2, 39), (3, 2), (4, 20), (5, 122), (7, 2), (8, 2), (9, 1), (10, 2), (11, 1), (13, 1), (19, 1), (20, 1), (23, 2), (26, 1)]`; colors green = 218, red = 20, cyan = 0; all borders `(0, 0, 1)`.
+- Oversized annotation audit found 0 malformed page-edge rectangles.
+- Rendered and visually inspected pages 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 19, 20, 23, and 26; highlighted boxes are crisp and aligned.
+- Verified no duplicate `C:\Users\wangz\Downloads\4.pdf` was created.
 - PDF body scan found expected full-scale claims and no internal hardening markers.
 - LaTeX log scan found no unresolved citations/references, overfull boxes, fatal errors, or emergency stops.
 - Public GitHub repository:
@@ -62,4 +69,4 @@ Failures and recovery:
 
 Next step:
 
-- Commit and push the v3 full-scale final state.
+- Proceed to paper 03 after this VLA-style boxed-link hardening changeset is pushed.

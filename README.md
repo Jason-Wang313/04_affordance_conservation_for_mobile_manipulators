@@ -6,8 +6,18 @@ This repository contains paper 04 in the robotics research batch. The thesis is 
 
 - Final PDF: `C:/Users/wangz/Downloads/04.pdf`
 - Verified page count: 28 pages
+- Verified PDF size: 1,135,968 bytes
+- Verified SHA256: `BE3F6E60B846255AF672975E04F62AC8B3BDCBB040A15321CF6C3EC218031EA0`
 - Final manuscript source: `paper/main.tex`
 - Full-scale execution plan: `docs/full_scale_execution_plan.md`
+
+VLA-style boxed-link verification:
+
+- Link annotations: 238 total on pages `[(1, 41), (2, 39), (3, 2), (4, 20), (5, 122), (7, 2), (8, 2), (9, 1), (10, 2), (11, 1), (13, 1), (19, 1), (20, 1), (23, 2), (26, 1)]`.
+- Annotation colors: green = 218, red = 20, cyan = 0.
+- Border widths: `(0, 0, 1)` for all link annotations.
+- Oversized annotation audit: 0 malformed page-edge rectangles.
+- Visual audit: rendered pages 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 19, 20, 23, and 26; green citation/URL boxes and red internal-reference boxes are crisp and aligned.
 
 ## Main Evidence
 
