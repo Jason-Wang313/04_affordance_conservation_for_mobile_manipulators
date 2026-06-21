@@ -17,6 +17,8 @@
 | Calibration metrics | Done | ECE and calibration figures |
 | Uncertainty/error bars | Done | SEM in CSV summaries and plotted confidence intervals |
 | RAM-light execution | Done | Compact CSV rows; no raw trajectory dumps |
+| VLA-style boxed-link audit | Done | 238 annotations; green = 218, red = 20, cyan = 0; all borders `(0, 0, 1)` |
+| Visual PDF link audit | Done | Rendered all pages with link annotations; no oversized page-edge rectangles |
 | Hardware validation | Missing | Outside local recoverability |
 | Learned access gate | Missing | Measured as future-risk boundary, not solved |
 | Automatic contact correspondence | Missing | Stress-tested as corruption, not solved |

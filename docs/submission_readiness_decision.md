@@ -19,3 +19,7 @@ The paper does not claim real-robot deployment readiness. For a venue or reviewe
 ## Terminal Condition
 
 Paper 04 may move forward in the batch. The canonical final PDF is `C:/Users/wangz/Downloads/04.pdf`, verified at 28 pages.
+
+## Final Artifact Verification
+
+The canonical PDF remains a 28-page final artifact at `C:/Users/wangz/Downloads/04.pdf` after VLA-style boxed-link hardening. The final export is 1,135,968 bytes with SHA256 `BE3F6E60B846255AF672975E04F62AC8B3BDCBB040A15321CF6C3EC218031EA0`. It contains 238 boxed link annotations on pages `[(1, 41), (2, 39), (3, 2), (4, 20), (5, 122), (7, 2), (8, 2), (9, 1), (10, 2), (11, 1), (13, 1), (19, 1), (20, 1), (23, 2), (26, 1)]`; green = 218, red = 20, cyan = 0; all borders are `(0, 0, 1)`. Oversized annotation audit found 0 malformed page-edge rectangles, and rendered-page inspection confirms the boxes are crisp and aligned.

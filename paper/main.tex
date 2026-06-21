@@ -10,6 +10,13 @@
 \usepackage{array}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\hypersetup{
+  colorlinks=false,
+  pdfborder={0 0 1},
+  citebordercolor={0 1 0},
+  linkbordercolor={1 0 0},
+  urlbordercolor={0 1 0}
+}
 \usepackage{url}
 
 \title{Affordance Conservation for Mobile Manipulators}
@@ -42,7 +49,7 @@ A mobile manipulator can fail at an action for a reason that has little to do wi
 
 This collapse is especially damaging because the two factors have different invariance structure. The contact-frame affordance of a stable handle should be conserved across many base poses and clutter configurations. The access gate should be recomputed whenever the base, arm, or clutter changes. Thus the observed label is not the invariant object. The invariant is the affordance after quotienting out access.
 
-The field has strong tools near both sides of this boundary. Affordance methods learn object-, part-, or contact-centered action possibilities \citep{rw002,rw004,rw006,rw011,rw012,rw013,rw018,rw020,rw023,rw024,rw033,rw034,rw050,rw054,rw055}. Mobile manipulation, base placement, reachability, and whole-body planning methods reason about feasible robot configurations \citep{rw001,rw003,rw007,rw008,rw015,rw019,rw022,rw026,rw027,rw032,rw043,rw052,rw056,rw058,rw066}. Clutter and task-and-motion planning systems make obstruction a first-class planning variable \citep{rw014,rw031,rw037,rw038}. Recent value-map and language-conditioned methods can compose broad semantic and geometric signals \citep{rw017,rw048,rw067,rw073,rw078}. These systems do not, by themselves, decide whether a negative mobile-manipulation label is evidence against the object affordance or merely evidence that access failed.
+The field has strong tools near both sides of this boundary. Affordance methods learn object-, part-, or contact-centered action possibilities \citep{rw002,rw004,rw006,rw011,rw012,rw013,rw018,rw020,rw023,rw024,rw033,rw034,rw050,rw054,rw055}. Mobile manipulation, base placement, reachability, and whole-body planning methods reason about feasible robot configurations \citep{rw001,rw003,rw007,rw008,rw015}, \mbox{\citep{rw019}}, and \citep{rw022,rw026,rw027,rw032,rw043,rw052,rw056,rw058,rw066}. Clutter and task-and-motion planning systems make obstruction a first-class planning variable \citep{rw014,rw031,rw037,rw038}. Recent value-map and language-conditioned methods can compose broad semantic and geometric signals \citep{rw017,rw048,rw067,rw073,rw078}. These systems do not, by themselves, decide whether a negative mobile-manipulation label is evidence against the object affordance or merely evidence that access failed.
 
 This paper proposes a small but consequential change in the target variable. We model observed success as a product of a conserved contact affordance and a mutable access gate, with a small false-positive background for inaccessible trials. We call the resulting estimator a conserved affordance quotient (CAQ). The estimator is intentionally simple: learn class-level contact affordance from accessible trials and treat inaccessible trials as censored for the object-side variable. The simplicity is a feature of the study. It isolates the variable split rather than hiding it inside a large predictor.
 
